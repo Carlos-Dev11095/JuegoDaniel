@@ -1,2 +1,0 @@
-# JuegoDaniel
-Juego de daniel

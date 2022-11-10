@@ -1,15 +1,22 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Escenario.tres" type="TileSet" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Players/bunny1_stand.png" type="Texture" id=3]
 [ext_resource path="res://nivel1.gd" type="Script" id=4]
 [ext_resource path="res://nivel1intocable.tres" type="TileSet" id=5]
+[ext_resource path="res://tarea.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CanvasItemMaterial" id=3]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 67, 12 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 72.1875, 55.625 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 280.5, 35.5 )
 
 [node name="nivel1" type="Node2D"]
 material = SubResource( 3 )
@@ -20,7 +27,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( -166, 280 )
+position = Vector2( -131, 284 )
 rotation = 0.00124082
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -46,7 +53,7 @@ cell_size = Vector2( 70, 70 )
 cell_quadrant_size = 12
 cell_custom_transform = Transform2D( 70, 0, 0, 70, 0, 0 )
 format = 1
-tile_data = PoolIntArray( 196615, 10, 0, 196616, 3, 0, 196619, 8, 0, 196620, 2, 0, 196621, 2, 0, 262150, 10, 0, 262151, 0, 0, 262152, -1610612725, 0, 327685, 10, 0, 327686, 0, 0, 327687, -1610612725, 0, 393220, 10, 0, 393221, 0, 0, 393222, -1610612725, 0, 524287, 2, 0, 458752, 2, 0, 458753, 2, 0, 458754, 2, 0, 458755, 2, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 2, 0, 458761, 2, 0, 458762, 2, 0, 589823, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 1610612736, 0, 524298, 1610612746, 0 )
+tile_data = PoolIntArray( 196615, 10, 0, 196616, 6, 0, 196619, 8, 0, 196620, 1, 0, 196621, 1, 0, 262150, 10, 0, 262151, 3, 0, 524287, 2, 0, 458752, 2, 0, 458753, 2, 0, 458754, 2, 0, 458755, 2, 0, 458756, 2, 0, 458757, 2, 0, 458758, 2, 0, 458759, 2, 0, 458760, 2, 0, 458761, 1, 0, 458762, 1, 0, 589823, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_left = 144.0
@@ -67,10 +74,28 @@ format = 1
 tile_data = PoolIntArray( 327682, 0, 0, 327683, 0, 0 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="TileMap2"]
-collision_layer = 0
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap2/StaticBody2D"]
 position = Vector2( 195, 332 )
 shape = SubResource( 4 )
 one_way_collision = true
 one_way_collision_margin = 2.1
+
+[node name="SecretRooom" parent="." instance=ExtResource( 6 )]
+tile_data = PoolIntArray( -1, 0, 0, 65535, 0, 0, 0, 0, 0, 327687, 0, 0, 327688, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 851970, 0, 0, 851971, 0, 0, 851972, 0, 0, 851973, 0, 0, 851974, 0, 0, 917504, 0, 0, 917505, 0, 0, 917510, 0, 0, 917511, 0, 0, 917512, 0, 0, 917513, 0, 0, 917514, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 1048575, 0, 0, 983049, 0, 0, 983053, 0, 0, 983054, 0, 0, 1114111, 0, 0, 1048585, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1179647, 0, 0, 1114121, 0, 0, 1114126, 0, 0, 1245183, 0, 0, 1179648, 0, 0, 1179656, 0, 0, 1179657, 0, 0, 1179662, 0, 0, 1310719, 0, 0, 1245184, 0, 0, 1245185, 0, 0, 1245186, 0, 0, 1245187, 0, 0, 1245188, 0, 0, 1245189, 0, 0, 1245190, 0, 0, 1245191, 0, 0, 1245198, 0, 0, 1376255, 0, 0, 1310720, 0, 0, 1310721, 0, 0, 1310722, 0, 0, 1310723, 0, 0, 1310724, 0, 0, 1310725, 0, 0, 1310726, 0, 0, 1310727, 0, 0, 1310728, 0, 0, 1310729, 0, 0, 1310730, 0, 0, 1310731, 0, 0, 1310732, 0, 0, 1310733, 0, 0, 1310734, 0, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SecretRooom/Area2D" index="0"]
+position = Vector2( 512.813, 432.375 )
+shape = SubResource( 5 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 662, 696 )
+shape = SubResource( 6 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+
+[editable path="SecretRooom"]
